@@ -1,0 +1,12 @@
+<div *ngFor="let item of films">
+  <app-film-item
+    [filmItem]="item"
+    (selectFilmItem)="onSelectFilm($event)"
+  ></app-film-item>
+</div>
+
+<!-- <div *ngFor="let item of selectedFilms">
+  {{ item.film }}
+</div> -->
+
+{{ finalPrice }}
