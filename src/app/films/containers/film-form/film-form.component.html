@@ -1,0 +1,80 @@
+<form novalidate (ngSubmit)="submit(filmGroup)" [formGroup]="filmGroup">
+  <div>
+    <label>Film</label>
+    <input
+      matInput
+      type="text"
+      name="film"
+      placeholder="Film"
+      formControlName="film"
+    />
+  </div>
+  <div
+    class="error"
+    *ngIf="
+      filmGroup.get('film')?.touched &&
+      filmGroup.get('film')?.hasError('required')
+    "
+  >
+    Field is required
+  </div>
+
+  <div>
+    <label>Price</label>
+    <input
+      matInput
+      type="text"
+      name="price"
+      placeholder="Price"
+      formControlName="price"
+    />
+  </div>
+  <div
+    class="error"
+    *ngIf="
+      filmGroup.get('price')?.touched &&
+      filmGroup.get('price')?.hasError('required')
+    "
+  >
+    Field is required
+  </div>
+
+  <div>
+    <label>Description</label>
+    <input
+      matInput
+      type="text"
+      name="description"
+      placeholder="description"
+      formControlName="description"
+    />
+  </div>
+  <div
+    class="error"
+    *ngIf="
+      filmGroup.get('description')?.touched &&
+      filmGroup.get('description')?.hasError('required')
+    "
+  >
+    Field is required
+  </div>
+
+  <button type="submit" [disabled]="filmGroup.invalid">Uložit</button>
+
+  <div style="padding-top: 28px">
+    <hr />
+
+    Stav formulare:
+    <pre>valid: {{ filmGroup?.valid }}</pre>
+    <pre>invalid: {{ filmGroup?.invalid }}</pre>
+
+    <hr />
+
+    Stav jednoho pole film:
+    <br />
+    1. zpusob jak sahnout na property errors:
+    <pre>{{ filmGroup?.controls?.film?.errors | json }}</pre>
+    2. zpusob jak sahnout na property errors pres get:
+    <pre>{{ filmGroup.get("film")?.errors | json }}</pre>
+  </div>
+</form>

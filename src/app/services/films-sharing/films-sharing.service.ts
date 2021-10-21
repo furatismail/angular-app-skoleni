@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Film } from '../interfaces/film.interface';
+import { Film } from 'src/app/interfaces/film.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmsSharingService {
-
   private dataSource = new BehaviorSubject<Film | null>(null);
   currentData = this.dataSource.asObservable();
 

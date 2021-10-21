@@ -1,4 +1,6 @@
-<div style="border: 1px solid grey; margin: 24px">
-  <pre>{{ filmItem | json }}</pre>
+<mat-card style="margin: 10px">
+  {{ filmItem?.film }} <br />
+  {{ filmItem?.price }} <br />
+  {{ filmItem?.description }} <br />
   <button (click)="selectFilm(filmItem)">Pujcit</button>
-</div>
+</mat-card>
